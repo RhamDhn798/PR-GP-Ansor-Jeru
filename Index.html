@@ -1,1 +1,574 @@
-hello world
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>PR GP Ansor Jeru - Turen, Malang</title>
+    <style>
+        /* ===== RESET & VARIABEL ===== */
+        :root {
+            --hijau: #0A5F2C;
+            --hijau-gelap: #06401e;
+            --emas: #C9A227;
+            --emas-muda: #e0b832;
+            --putih: #FFFFFF;
+            --abu: #F5F7F6;
+            --abu-gelap: #e5e7eb;
+            --teks: #1F2937;
+            --teks-abu: #6B7280;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius: 16px;
+            --transition: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--teks);
+            background: var(--putih);
+            line-height: 1.7;
+        }
+
+        /* ===== HEADER & NAVBAR ===== */
+        header {
+            background: linear-gradient(135deg, var(--hijau) 0%, #0E7A39 100%);
+            color: var(--putih);
+            padding: 14px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(4px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+        .logo span {
+            color: var(--emas);
+        }
+        .logo small {
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-left: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 8px 18px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--putih);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition);
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover {
+            color: var(--emas);
+            border-bottom-color: var(--emas);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(rgba(10, 95, 44, 0.88), rgba(6, 64, 30, 0.92)),
+                url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600') center/cover no-repeat;
+            color: var(--putih);
+            text-align: center;
+            padding: 120px 8%;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, var(--putih), transparent);
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: clamp(1rem, 1.4vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto 32px;
+            opacity: 0.92;
+        }
+
+        .btn {
+            background: var(--emas);
+            color: #1F2937;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(201, 162, 39, 0.45);
+            background: var(--emas-muda);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--putih);
+            border: 2px solid var(--putih);
+        }
+        .btn-outline:hover {
+            background: var(--putih);
+            color: var(--hijau);
+            box-shadow: 0 10px 28px rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===== SECTION UMUM ===== */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            color: var(--hijau);
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--emas);
+            margin: 8px auto 0;
+            border-radius: 4px;
+        }
+        .section-title p {
+            color: var(--teks-abu);
+            max-width: 650px;
+            margin: 12px auto 0;
+        }
+
+        /* ===== CARD GRID ===== */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .card {
+            background: var(--putih);
+            padding: 30px 26px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--emas);
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+        }
+        .card h3 {
+            color: var(--hijau);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .card p {
+            color: var(--teks-abu);
+            font-size: 0.95rem;
+        }
+        .card .icon {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+
+        /* ===== MAKNA (blockquote) ===== */
+        .makna {
+            background: var(--abu);
+        }
+        .makna blockquote {
+            background: var(--putih);
+            border-left: 6px solid var(--hijau);
+            padding: 28px 34px;
+            border-radius: 12px;
+            font-style: italic;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            color: var(--teks);
+        }
+        .makna blockquote strong {
+            color: var(--hijau);
+        }
+
+        /* ===== STRUKTUR ===== */
+        .struktur-list {
+            max-width: 720px;
+            margin: 0 auto;
+            background: var(--putih);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .struktur-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 28px;
+            border-bottom: 1px solid var(--abu-gelap);
+            font-size: 0.98rem;
+        }
+        .struktur-item:last-child {
+            border-bottom: none;
+        }
+        .struktur-item:nth-child(even) {
+            background: var(--abu);
+        }
+        .struktur-item strong {
+            color: var(--hijau);
+        }
+        .struktur-item span {
+            color: var(--teks);
+            font-weight: 500;
+        }
+
+        /* ===== GALERI ===== */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+        .galeri-grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        .galeri-grid img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        /* ===== KONTAK ===== */
+        #kontak {
+            background: var(--abu);
+            text-align: center;
+        }
+        #kontak p {
+            font-size: 1.05rem;
+        }
+        #kontak a {
+            color: var(--hijau);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        #kontak a:hover {
+            color: var(--emas);
+        }
+        .kontak-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .kontak-social a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--putih);
+            padding: 10px 22px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            color: var(--teks);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .kontak-social a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            color: var(--hijau);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0F1A1A;
+            color: #D1D5DB;
+            padding: 40px 8% 32px;
+            text-align: center;
+        }
+        footer p {
+            font-size: 0.95rem;
+        }
+        footer .footer-tagline {
+            margin-top: 6px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            letter-spacing: 1px;
+        }
+        footer a {
+            color: var(--emas);
+            text-decoration: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 5%;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul {
+                justify-content: center;
+                gap: 6px 14px;
+            }
+            nav a {
+                font-size: 13px;
+            }
+            section {
+                padding: 50px 5%;
+            }
+            .hero {
+                padding: 80px 5%;
+            }
+            .struktur-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 4px;
+                padding: 14px 16px;
+            }
+            .galeri-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            .galeri-grid img {
+                height: 160px;
+            }
+            .kontak-social a {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 17px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+            .card {
+                padding: 22px 18px;
+            }
+            .makna blockquote {
+                padding: 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <nav>
+            <div class="logo">
+                PR ANSOR <span>[Nama Desa]</span>
+                <small>• Turen</small>
+            </div>
+            <ul>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#makna">Makna</a></li>
+                <li><a href="#struktur">Pengurus</a></li>
+                <li><a href="#kegiatan">Kegiatan</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <h1>Pimpinan Ranting GP Ansor [Nama Desa]</h1>
+        <p>
+            Wadah Kaderisasi Pemuda NU Desa [Nama Desa], Kec. Turen, Kab. Malang.<br />
+            Berkhidmah untuk Agama, Bangsa, dan Masyarakat [Nama Desa].
+        </p>
+        <a href="#tentang" class="btn">Kenali Kami</a>
+        <a href="#kontak" class="btn btn-outline" style="margin-left:12px;">Hubungi</a>
+    </section>
+
+    <!-- ===== TENTANG ===== -->
+    <section id="tentang">
+        <div class="section-title">
+            <h2>Tentang PR Ansor [Nama Desa]</h2>
+            <p>Bagian dari GP Ansor di bawah naungan NU. Fokus membina pemuda Desa [Nama Desa] dengan semangat Aswaja dan kebangsaan.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="icon">🎯</div>
+                <h3>Visi</h3>
+                <p>Menjadi garda terdepan pemuda [Nama Desa] yang militan, berakhlak, dan cinta NKRI berlandaskan Aswaja.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📌</div>
+                <h3>Misi</h3>
+                <p>Kaderisasi, pengabdian sosial, pemberdayaan UMKM pemuda, dan menjaga tradisi Aswaja di Desa [Nama Desa].</p>
+            </div>
+            <div class="card">
+                <div class="icon">💎</div>
+                <h3>Nilai</h3>
+                <p>Ikhlas Khidmah, Tawadhu, Disiplin, Solid, dan Berani membela Kebenaran.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAKNA ===== -->
+    <section id="makna" class="makna">
+        <div class="section-title">
+            <h2>Makna "Ansor"</h2>
+        </div>
+        <blockquote>
+            <strong>الأنصار = Al-Anshar</strong>, artinya <strong>"Para Penolong"</strong>.<br /><br />
+            Meneladani pemuda Madinah yang menolong Rasulullah SAW.<br />
+            Maka PR Ansor [Nama Desa] hadir sebagai <strong>penolong ulama</strong>, <strong>penolong sesama</strong>, dan <strong>penolong Desa Jeru</strong>.<br />
+            Dengan semangat ini, kader Ansor Jeru siap <strong>khidmah tanpa pamrih</strong>.
+        </blockquote>
+    </section>
+
+    <!-- ===== STRUKTUR ===== -->
+    <section id="struktur">
+        <div class="section-title">
+            <h2>Struktur Pengurus</h2>
+            <p>Pimpinan Ranting GP Ansor [Nama Desa] Masa Khidmat 2024–2029</p>
+        </div>
+        <div class="struktur-list">
+            <div class="struktur-item"><strong>Ketua</strong><span>[Nama Ketua]</span></div>
+            <div class="struktur-item"><strong>Wakil Ketua</strong><span>[Nama Wakil Ketua]</span></div>
+            <div class="struktur-item"><strong>Sekretaris</strong><span>[Nama Sekretaris]</span></div>
+            <div class="struktur-item"><strong>Wakil Sekretaris</strong><span>[Nama Wakil Sekretaris]</span></div>
+            <div class="struktur-item"><strong>Bendahara</strong><span>[Nama Bendahara]</span></div>
+            <div class="struktur-item"><strong>Wakil Bendahara</strong><span>[Nama Wakil Bendahara]</span></div>
+        </div>
+    </section>
+
+    <!-- ===== KEGIATAN ===== -->
+    <section id="kegiatan">
+        <div class="section-title">
+            <h2>Program &amp; Kegiatan</h2>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="icon">🕌</div>
+                <h3>Ngaji &amp; Dzikir Rutin</h3>
+                <p>Majelis sholawat, ngaji kitab kuning, dan tahlil keliling antar dusun di Desa [Nama Desa].</p>
+            </div>
+            <div class="card">
+                <div class="icon">🛡️</div>
+                <h3>Banser Ranting [Nama Desa]</h3>
+                <p>Pengamanan acara NU, gotong royong, tanggap bencana, dan pengawalan kiai di wilayah [Nama Ranting].</p>
+            </div>
+            <div class="card">
+                <div class="icon">💼</div>
+                <h3>Ekonomi Pemuda</h3>
+                <p>Pembinaan UMKM, pelatihan digital, dan koperasi kader Ansor [Nama Desa].</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALERI ===== -->
+    <section id="galeri" class="makna">
+        <div class="section-title">
+            <h2>Galeri Kegiatan</h2>
+            <p>Dokumentasi Khidmah Kader Ansor [Nama Desa]</p>
+        </div>
+        <div class="galeri-grid">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800" alt="Kegiatan 1" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1527525447443-1fbb5f8bdcb7?q=80&w=800" alt="Kegiatan 2" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=800" alt="Kegiatan 3" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800" alt="Kegiatan 4" loading="lazy" />
+        </div>
+    </section>
+
+    <!-- ===== KONTAK ===== -->
+    <section id="kontak">
+        <div class="section-title">
+            <h2>Hubungi Kami</h2>
+        </div>
+        <p>
+            📍 Sekretariat: Desa [Nama Desa], Kec. Turen, Kab. Malang, Jawa Timur
+        </p>
+        <div class="kontak-social">
+            <a href="https://wa.me/[no/kontak admin]" target="_blank" rel="noopener">
+                💬 WhatsApp
+            </a>
+            <a href="https://instagram.com/ansor[nama desa/ranting].turen" target="_blank" rel="noopener">
+                📷 Instagram
+            </a>
+            <a href="mailto:ansor[nama desa/ranting]@gmail.com">
+                ✉️ Email
+            </a>
+        </div>
+        <a href="https://wa.me/[no/kontak admin]" target="_blank" rel="noopener" class="btn" style="margin-top:28px;">
+            Gabung Kader Ansor [Nama Desa]
+        </a>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2026 Pimpinan Ranting GP Ansor [Nama Desa], Turen – Malang.</p>
+        <p class="footer-tagline">Satu Barisan, Satu Komando. Berkhidmah Sampai Akhir Hayat.</p>
+    </footer>
+
+</body>
+</html>
