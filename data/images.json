@@ -2,7 +2,7 @@
   "_keterangan": "Edit link gambar di sini saja. Tidak perlu sentuh file HTML. Kalau field 'pengurus' dikosongkan (\"\"), foto akan otomatis diganti ikon avatar bawaan.",
 
   "hero_bg": "https://raw.githubusercontent.com/RhamDhn798/PR-GP-Ansor-Jeru/refs/heads/main/Assets/header.png",
-  "hero_photo": "Assets/logo ansor.jpg",
+  "hero_photo": "https://raw.githubusercontent.com/RhamDhn798/PR-GP-Ansor-Jeru/refs/heads/main/Assets/logo%20ansor.jpg",
   "tentang_photo": "https://raw.githubusercontent.com/RhamDhn798/PR-GP-Ansor-Jeru/refs/heads/main/Assets/header.png",
 
   "galeri": [
