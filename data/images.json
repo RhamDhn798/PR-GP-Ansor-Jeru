@@ -1,0 +1,25 @@
+{
+  "_keterangan": "Edit link gambar di sini saja. Tidak perlu sentuh file HTML. Kalau field 'pengurus' dikosongkan (\"\"), foto akan otomatis diganti ikon avatar bawaan.",
+
+  "hero_bg": "https://raw.githubusercontent.com/RhamDhn798/PR-GP-Ansor-Jeru/refs/heads/main/Assets/header.png",
+  "hero_photo": "https://raw.githubusercontent.com/RhamDhn798/PR-GP-Ansor-Jeru/refs/heads/main/Assets/header.png",
+  "tentang_photo": "https://raw.githubusercontent.com/RhamDhn798/PR-GP-Ansor-Jeru/refs/heads/main/Assets/header.png",
+
+  "galeri": [
+    "Assets/IMG_20260817_215503.jpg",
+    "Assets/IMG_20260817_182302 (1).jpg",
+    "Assets/IMG-20260910-WA0016.jpg",
+    "Assets/IMG-20260910-WA0015.jpg"
+  ],
+
+  "pengurus": {
+    "ketua": "",
+    "wakil_ketua_1": "",
+    "wakil_ketua_2": "",
+    "sekretaris": "",
+    "wakil_sekretaris_1": "",
+    "wakil_sekretaris_2": "",
+    "bendahara": "",
+    "wakil_bendahara": ""
+  }
+}
