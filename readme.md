@@ -93,4 +93,8 @@ di bawah header. Logikanya ada di `js/main.js`, gayanya di
   layout, ikon (emoji → SVG), dan struktur halaman yang disusun ulang.
 - Palet warna tetap hijau-emas (identitas Ansor/NU), ditambah nuansa
   krem hangat supaya tidak flat putih-hijau saja.
-- Font: Poppins untuk judul, Inter untuk teks isi.
+- Font: Poppins untuk judul, Inter untuk teks isi.d
+
+Credit
+Directed by : RhamDhn
+Created by : Riel-Akuonza
