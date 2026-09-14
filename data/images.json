@@ -13,10 +13,10 @@
   ],
 
   "pengurus": {
-    "ketua": "",
+    "ketua": "Assets/Pengurus/S1.png.jpg",
     "wakil_ketua_1": "",
-    "wakil_ketua_2": "",
-    "sekretaris": "",
+    "wakil_ketua_2": "Assets/Pengurus/S3.png.jpg",
+    "sekretaris": "Assets/Pengurus/S4.png.jpg",
     "wakil_sekretaris_1": "",
     "wakil_sekretaris_2": "",
     "bendahara": "",
